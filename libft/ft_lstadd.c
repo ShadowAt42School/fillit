@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/05 17:05:17 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/05 23:20:57 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/11 22:28:56 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (!alst || !new)
+	if (!new)
 		return ;
-	new->next = *alst;
+	if (*alst)
+		new->next = *alst;
 	*alst = new;
 }
