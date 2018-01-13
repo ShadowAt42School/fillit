@@ -6,12 +6,12 @@
 #    By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 21:51:41 by maghayev          #+#    #+#              #
-#    Updated: 2018/01/11 23:14:25 by maghayev         ###   ########.fr        #
+#    Updated: 2018/01/12 14:50:48 by maghayev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = fillit
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 DEPS = fillit.h
 SRC  = main.c tetra_parse.c
 MAKES = ./libft/

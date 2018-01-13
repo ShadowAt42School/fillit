@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:18:02 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/11 20:13:27 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/13 00:49:45 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 ** Type defs
 */
 typedef	unsigned char	t_byte;
+typedef unsigned int	t_bool;
 
 typedef struct	s_list
 {
@@ -163,6 +164,7 @@ void			ft_lstadd(t_list **alst, t_list *new_lst);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void			ft_lstpush(t_list **alst, t_list *new_lst);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif
