@@ -25,7 +25,7 @@ OBJECT = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): ftlib $(OBJECT)
-	$(CC) $(CFLAGS) -o $@ $(LIBFT) $(OBJECT)
+	$(CC) $(CFLAGS) $(OBJECT) $(LIBFT) -o $@ 
 	@echo "Finished!"
 
 ftlib:
