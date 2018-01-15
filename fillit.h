@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:10:15 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/13 00:54:55 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/15 00:02:36 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,16 @@ typedef struct	s_tetra
 */
 # define MAX_BUF 546
 # define TETRA_S 20
+# define TETRA_HASH_C 4
+# define TETRA_DOTS_C 12
+# define TETRA_EMPTY '.'
+# define TETRA_HASH '#'
+# define TETRA_CHECK(x) (x == '\n' || x == '.' || x == '#')
 
 t_list			*tetra_parse_init(char *tetras_str);
 t_tetra			*tetra_node(char **tetras_str, char represent);
-void			tetra_outline(t_tetra **tetra);
+void			tetra_outline(char *tetra_str, t_tetra **tetra);
+t_bool			tetra_validate(char *tetra_str);
+int				tetra_hash_conns(char *tetra_str, int cur_pos);
 
 #endif
