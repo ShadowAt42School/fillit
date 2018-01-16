@@ -23,7 +23,7 @@ t_list		*tetra_parse_init(char *tetras_str)
 	while (*tetras_str)
 	{
 		tetra = tetra_node(&tetras_str, char_rep++);
-		ft_lstpush(&list, ft_lstnew(tetra, sizeof(tetra)));
+		ft_lstpush(&list, ft_lstnew(tetra, sizeof(t_tetra)));
 	}
 	return (list);
 }
@@ -48,26 +48,39 @@ t_tetra		*tetra_node(char **tetras_str, char char_rep)
 
 void		tetra_outline(char *tetra_str, t_tetra **tetra)
 {
-	int			x;
-	int			y;
-	int			counter;
 	t_tetra		*tetra_one;
+	t_point		init_point[1];
+	int			cur_pos;
+	int			hash_c;
 
-	x = 0;
-	y = 0;
-	counter = 0;
+	init_point[0] = tetra_first_hash(tetra_str);
 	tetra_one = *tetra;
+	cur_pos = 0;
+	hash_c = 0;
 	while (*tetra_str)
 	{
-		if (*tetra_str == '\n')
-			y++;
 		if (*tetra_str == '#')
 		{
-			tetra_one->points[counter].x = x;
-			tetra_one->points[counter].y = y;
+			tetra_one->points[hash_c].x = cur_pos / 5 - init_point->x;
+			tetra_one->points[hash_c].y = cur_pos % 5 - init_point->y;
+			hash_c++;
 		}
 		tetra_str++;
+		cur_pos++;
 	}
+}
+
+t_point		tetra_first_hash(char *tetra_str)
+{
+	t_point		initial_point[1];
+	char		*fr_occur;
+	int			fr_occur_pos;
+
+	fr_occur = ft_strchr(tetra_str, '#');
+	fr_occur_pos = fr_occur - tetra_str;
+	initial_point[0].x = fr_occur_pos / 5;
+	initial_point[0].y = fr_occur_pos % 5;
+	return (initial_point[0]);
 }
 
 t_bool		tetra_validate(char *tetra_str)

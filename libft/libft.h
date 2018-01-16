@@ -77,7 +77,7 @@ typedef struct	s_list
 # define IS_ALPHA(x) ((IS_UPPER(x) || IS_LOWER(x)) ? TRUE : FALSE)
 # define IS_ALNUM(x) (IS_ALPHA(x) || IS_DIGIT(x) ? TRUE : FALSE)
 # define IS_PRINT(x) (x >= 32 && x <= 126 ? TRUE : FALSE)
-# define IS_NONPRINT(x) (x >= 0 && x <= 31 || x == 127 ? TRUE : FALSE)
+# define IS_NONPRINT(x) ((x >= 0 && x <= 31) || x == 127 ? TRUE : FALSE)
 
 /*
 **	Strings

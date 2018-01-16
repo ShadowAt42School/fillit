@@ -32,7 +32,7 @@ static char		**ft_strsplit_eng(char const *trimed, int words, char delim)
 			*str_r++ = (words == 1 ?
 				ft_strdup(trimed) : ft_strdupdelim(trimed, delim));
 			trimed += (words == 1 ?
-				ft_strlen(trimed) : ft_strlendelim(trimed, delim));
+				(int)ft_strlen(trimed) : (int)ft_strlendelim(trimed, delim));
 			words--;
 		}
 	}

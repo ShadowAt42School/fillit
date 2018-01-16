@@ -47,5 +47,6 @@ t_tetra			*tetra_node(char **tetras_str, char represent);
 void			tetra_outline(char *tetra_str, t_tetra **tetra);
 t_bool			tetra_validate(char *tetra_str);
 int				tetra_hash_conns(char *tetra_str, int cur_pos);
+t_point			tetra_first_hash(char *tetra_str);
 
 #endif

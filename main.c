@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 20:02:38 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/15 19:02:19 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/15 19:15:10 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ int		main(int argc, char **argv)
 	if (bytes_read <= 0 || (bytes_read + 1) % 21 != 0)
 		return (0);
 	split_tetras = tetra_parse_init(buf);
-	// while (split_tetras)
-	// {
-	// 	t_tetra *test = (t_tetra*)split_tetras->content;
-	// 	ft_putstr((char*)test->tetra);
-	// 	ft_putchar('\n');
-	// 	split_tetras = split_tetras->next;
-	// }
-	// ft_putchar('\n');
+
 	return (0);
 }
