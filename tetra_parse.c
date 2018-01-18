@@ -6,32 +6,17 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 21:12:41 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/15 19:13:29 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/18 04:12:34 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_list		*tetra_parse_init(char *tetras_str)
-{
-	t_list		*list;
-	t_tetra		*tetra;
-	char		char_rep;
-
-	char_rep = 'A';
-	list = 0x00;
-	while (*tetras_str)
-	{
-		tetra = tetra_node(&tetras_str, char_rep++);
-		ft_lstpush(&list, ft_lstnew(tetra, sizeof(t_tetra)));
-	}
-	return (list);
-}
-
 t_tetra		*tetra_node(char **tetras_str, char char_rep)
 {
 	char		*tetra_str;
 	t_tetra		*tetra;
+	t_point		minimal;
 
 	tetra_str = ft_strnew(TETRA_S);
 	tetra = (t_tetra*)ft_memalloc(sizeof(t_tetra));
@@ -41,33 +26,38 @@ t_tetra		*tetra_node(char **tetras_str, char char_rep)
 		/*usage();*/
 	*tetras_str += (*(*tetras_str + TETRA_S + 1) == '\n'
 					? TETRA_S + 2 : TETRA_S + 1);
-	tetra_outline(tetra_str, &tetra);
-	tetra->char_rep = char_rep;
+	ft_bzero(&minimal, sizeof(t_point));
+	tetra_outline(tetra_str, &tetra, minimal, char_rep);
 	return (tetra);
 }
 
-void		tetra_outline(char *tetra_str, t_tetra **tetra)
+void		tetra_outline(
+			char *tetra_str, t_tetra **tetra, t_point minimal, char rep)
 {
-	t_tetra		*tetra_one;
+	t_tetra		*tetra_o;
 	t_point		init_point[1];
 	int			cur_pos;
 	int			hash_c;
 
 	init_point[0] = tetra_first_hash(tetra_str);
-	tetra_one = *tetra;
+	tetra_o = *tetra;
 	cur_pos = 0;
-	hash_c = 0;
+	hash_c = -1;
 	while (*tetra_str)
 	{
 		if (*tetra_str == '#')
 		{
-			tetra_one->points[hash_c].x = cur_pos / 5 - init_point->x;
-			tetra_one->points[hash_c].y = cur_pos % 5 - init_point->y;
-			hash_c++;
+			tetra_o->points[++hash_c].x = cur_pos / 5 - init_point->x;
+			tetra_o->points[hash_c].y = cur_pos % 5 - init_point->y;
+			tetra_o->points[hash_c].rep = rep;
+			if (tetra_o->points[hash_c].x < 0)
+				minimal.x = ft_min(minimal.x, tetra_o->points[hash_c].x);
+			if (tetra_o->points[hash_c].y < 0)
+				minimal.y = ft_min(minimal.y, tetra_o->points[hash_c].y);
 		}
-		tetra_str++;
-		cur_pos++;
+		(tetra_str++ ? cur_pos++ : cur_pos++);
 	}
+	tetra_fix_negative(tetra_o, minimal);
 }
 
 t_point		tetra_first_hash(char *tetra_str)
@@ -108,20 +98,4 @@ t_bool		tetra_validate(char *tetra_str)
 	if (dot_c != TETRA_DOTS_C || hash_c != TETRA_HASH_C)
 		return (FALSE);
 	return (con_c == 6 || con_c == 8 ? TRUE : FALSE);
-}
-
-int			tetra_hash_conns(char *tetra_str, int cur_pos)
-{
-	int		cons;
-
-	cons = 0;
-	if (*(tetra_str - 1) == TETRA_HASH && (cur_pos - 1) >= 0)
-		cons++;
-	if (*(tetra_str + 1) == TETRA_HASH && (cur_pos + 1) != TETRA_S)
-		cons++;
-	if (*(tetra_str - 5) == TETRA_HASH && (cur_pos - 5) >= 0)
-		cons++;
-	if (*(tetra_str + 5) == TETRA_HASH && (cur_pos + 5) < TETRA_S)
-		cons++;
-	return (cons);
 }
