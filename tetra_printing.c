@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 20:55:41 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 02:06:30 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 14:55:57 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,18 @@ void		tetra_print(t_point *map, t_tetra_meta *t_meta)
 	while (++c < t_meta->min_sqr)
 		print[c * (t_meta->min_sqr + 1) + t_meta->min_sqr] = '\n';
 	ft_putstr(print);
+}
+
+void		errhandle(t_bool iserror, t_bool isusage)
+{
+	if (iserror)
+	{
+		ft_putstr("error\n");
+		exit(1);
+	}
+	if (isusage)
+	{
+		ft_putstr("usage: fillit source_file\n");
+		exit(1);
+	}
 }

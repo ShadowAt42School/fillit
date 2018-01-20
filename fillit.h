@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:10:15 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 05:33:12 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 14:56:07 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ t_bool			tetra_increment(
 ** Printing
 */
 void			tetra_print(t_point *map, t_tetra_meta *t_meta);
+void			errhandle(t_bool iserror, t_bool isusage);
 
 #endif
