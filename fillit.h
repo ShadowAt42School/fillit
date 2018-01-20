@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:10:15 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/18 04:12:23 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 05:33:12 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct	s_point
 	int				x;
 	int				y;
 	char			rep;
+	t_bool			taken;
 }				t_point;
 
 typedef struct	s_tetra
@@ -39,6 +40,9 @@ typedef struct	s_tetra_meta
 {
 	t_bool			is_nx;
 	int				tetra_num;
+	int				tetra_count;
+	int				min_sqr;
+	int				t_hash_c;
 }				t_tetra_meta;
 
 /*
@@ -69,14 +73,26 @@ void			tetra_fix_negative(t_tetra *tetra_o, t_point tetra_min);
 ** Init solving functions
 */
 void			solve_init(t_tetra_main *tetra_main);
-void			tetra_solver(
-			t_point **map, t_list *tetra_l, int *min_square, int tetra_count);
+t_bool			tetra_solver(
+			t_point **map, t_list *tetra_l, t_tetra_meta *meta);
 t_bool			tetra_check_place(
-t_point **map, t_point *norm_points, int min_square, t_tetra_meta *tetra_meta);
-t_bool			tetra_free_spot(t_point **map, t_point *init_p, int min_square);
-t_bool			tetra_location_check(t_point **map, t_point *points);
+				t_point *map, t_point *norm_points, t_tetra_meta *tetra_meta);
+t_bool			tetra_free_spot(
+	t_point *map, t_point *init_p, t_point *tetra_ps, t_tetra_meta *tetra_meta);
+t_bool			tetra_place_free(
+				t_point *map, t_point *point, t_point *tetra_ps, int min_sqr);
+t_bool			tetra_set_values(
+		t_point *t_pre, t_point *init_p, t_point *normed, t_tetra_meta *t_m);
 t_bool			map_place_tetra(
-				t_point **map, t_point *tetra_ready, t_tetra_meta *tetra_meta);
-void			reset_map(t_point **map);
+t_point *map, t_point *tetra_ready, t_tetra_meta *tetra_meta, int t_down);
+void			reset_map(t_point **map, int count);
+void			reset_space(t_point *map, t_tetra_meta *t_meta);
+t_bool			tetra_increment(
+						t_point *map, t_point *t_points, t_tetra_meta *t_meta);
+
+/*
+** Printing
+*/
+void			tetra_print(t_point *map, t_tetra_meta *t_meta);
 
 #endif

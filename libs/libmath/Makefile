@@ -6,7 +6,7 @@
 #    By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 21:51:41 by maghayev          #+#    #+#              #
-#    Updated: 2018/01/18 02:28:34 by maghayev         ###   ########.fr        #
+#    Updated: 2018/01/19 21:13:38 by maghayev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libmath.a
@@ -16,7 +16,7 @@ NC="\033[0m\c"
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DEPS = libmath.h
-SRC  = ft_floorsqrt.c ft_min.c
+SRC  = ft_floorsqrt.c ft_min.c ft_pow.c
 
 OBJECT = $(SRC:.c=.o)
 

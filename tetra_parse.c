@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 21:12:41 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/18 04:12:34 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 14:46:53 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ t_tetra		*tetra_node(char **tetras_str, char char_rep)
 	tetra = (t_tetra*)ft_memalloc(sizeof(t_tetra));
 	ft_memcpy(tetra_str, *tetras_str, TETRA_S);
 	if (!tetra_validate(tetra_str))
+	{
+		ft_putstr("error\n");
 		exit(1);
-		/*usage();*/
+	}
 	*tetras_str += (*(*tetras_str + TETRA_S + 1) == '\n'
 					? TETRA_S + 2 : TETRA_S + 1);
 	ft_bzero(&minimal, sizeof(t_point));
@@ -57,7 +59,6 @@ void		tetra_outline(
 		}
 		(tetra_str++ ? cur_pos++ : cur_pos++);
 	}
-	tetra_fix_negative(tetra_o, minimal);
 }
 
 t_point		tetra_first_hash(char *tetra_str)
