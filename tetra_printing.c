@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 20:55:41 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 14:55:57 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 17:05:36 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		errhandle(t_bool iserror, t_bool isusage)
 	}
 	if (isusage)
 	{
-		ft_putstr("usage: fillit source_file\n");
+		ft_putstr("usage: ./fillit source_file\n");
 		exit(1);
 	}
 }
