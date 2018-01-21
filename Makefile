@@ -6,17 +6,17 @@
 #    By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 21:51:41 by maghayev          #+#    #+#              #
-#    Updated: 2018/01/19 21:06:16 by maghayev         ###   ########.fr        #
+#    Updated: 2018/01/20 19:06:08 by maghayev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = fillit
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 DEPS = fillit.h
 SRC  = main.c tetra_parse.c tetra_parse_helper.c tetra_solver.c \
 		tetra_solve_helper.c tetra_printing.c
-LIBS = ./libs/
-LIBA = $(LIBS)/libft/libft.a $(LIBS)/libmath/libmath.a
+LIBS = ./libft
+LIBA = $(LIBS)/libft.a
 
 OBJECT = $(SRC:.c=.o)
 

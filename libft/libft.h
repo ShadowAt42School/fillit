@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:18:02 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/15 21:58:36 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 19:02:29 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,5 +166,16 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_lstpush(t_list **alst, t_list *new_lst);
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+/*
+**	Math operations
+*/
+int				ft_floorsqrt(int toroot);
+int				ft_pow(int num1, int power);
+
+/*
+** Math comparison
+*/
+int				ft_min(int num1, int num2);
 
 #endif

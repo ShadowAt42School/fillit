@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min.c                                           :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/18 02:17:07 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/18 02:18:03 by maghayev         ###   ########.fr       */
+/*   Created: 2018/01/19 21:12:12 by maghayev          #+#    #+#             */
+/*   Updated: 2018/01/20 19:08:31 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libmath.h"
+#include "libft.h"
 
-int		ft_min(int num1, int num2)
+int		ft_pow(int num1, int power)
 {
-	if (num1 > num2)
-		return (num2);
-	if (num2 > num1)
-		return (num1);
-	return (num1);
+	int		res;
+
+	res = 1;
+	while (power--)
+		res *= num1;
+	return (res);
 }

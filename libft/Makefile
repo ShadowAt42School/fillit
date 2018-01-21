@@ -6,7 +6,7 @@
 #    By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 21:51:41 by maghayev          #+#    #+#              #
-#    Updated: 2018/01/12 15:50:04 by maghayev         ###   ########.fr        #
+#    Updated: 2018/01/20 19:04:42 by maghayev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -35,13 +35,15 @@ SRC  = ft_bzero.c  ft_memcpy.c ft_memset.c ft_memccpy.c ft_memchr.c \
 		ft_toupper.c ft_tolower.c ft_atoi.c ft_itoa.c \
 		\
 		ft_lstnew.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstmap.c \
-		ft_lstiter.c ft_lstpush.c
+		ft_lstiter.c ft_lstpush.c \
+		\
+		ft_floorsqrt.c ft_min.c ft_pow.c
 
 OBJECT = $(SRC:.c=.o)
 
 %.o: %.c $(DEPS)
 	@echo $(PURPLE)
-	$(CC) $(CFLAGS) -g -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 	@echo $(NC)
 
 all: $(NAME)

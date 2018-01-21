@@ -6,14 +6,13 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:10:15 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 14:56:07 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 19:07:36 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
-# include "./libs/libft/libft.h"
-# include "./libs/libmath/libmath.h"
+# include "./libft/libft.h"
 # include <fcntl.h>
 
 typedef struct	s_point
