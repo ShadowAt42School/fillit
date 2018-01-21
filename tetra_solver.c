@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 06:45:55 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 14:04:12 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/20 18:28:09 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,11 @@ t_bool		tetra_solver(
 t_bool		tetra_check_place(
 t_point *map, t_point *norm_points, t_tetra_meta *tetra_meta)
 {
-	int			hash_c;
 	t_point		tetra_t_points[4];
 	t_point		init_point;
 	int			index;
 
 	index = tetra_meta->tetra_num * TETRA_HASH_C;
-	hash_c = 0;
 	init_point.x = map[(index < 0 ? 0 : index)].x;
 	init_point.y = map[(index < 0 ? 0 : index)].y;
 	ft_bzero(&tetra_t_points, sizeof(t_point) * TETRA_HASH_C);
