@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 19:44:35 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/18 03:19:04 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/22 10:47:23 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,4 @@ int			tetra_hash_conns(char *tetra_str, int cur_pos)
 	if (*(tetra_str + 5) == TETRA_HASH && (cur_pos + 5) < TETRA_S)
 		cons++;
 	return (cons);
-}
-
-void		tetra_fix_negative(t_tetra *tetra_o, t_point tetra_min)
-{
-	int		counter;
-
-	counter = 0;
-	if (!tetra_min.x && !tetra_min.y)
-		return ;
-	while (counter < TETRA_HASH_C)
-	{
-		tetra_o->points[counter].x += ABS(tetra_min.x);
-		tetra_o->points[counter].y += ABS(tetra_min.y);
-		counter++;
-	}
-	return ;
 }

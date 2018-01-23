@@ -6,7 +6,7 @@
 #    By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 21:51:41 by maghayev          #+#    #+#              #
-#    Updated: 2018/01/20 19:04:42 by maghayev         ###   ########.fr        #
+#    Updated: 2018/01/22 14:41:06 by maghayev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -43,7 +43,7 @@ OBJECT = $(SRC:.c=.o)
 
 %.o: %.c $(DEPS)
 	@echo $(PURPLE)
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -g -o $@ $<
 	@echo $(NC)
 
 all: $(NAME)

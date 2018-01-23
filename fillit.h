@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:10:15 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 19:07:36 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/22 14:36:29 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,10 @@ typedef struct	s_tetra_meta
 t_tetra_main	*tetra_parse_init(char *tetras_str);
 t_tetra			*tetra_node(char **tetras_str, char represent);
 void			tetra_outline(
-				char *tetra_str, t_tetra **tetra, t_point minimal, char rep);
+				char *tetra_str, t_tetra **tetra, char rep);
 t_bool			tetra_validate(char *tetra_str);
 int				tetra_hash_conns(char *tetra_str, int cur_pos);
 t_point			tetra_first_hash(char *tetra_str);
-void			tetra_fix_negative(t_tetra *tetra_o, t_point tetra_min);
 
 /*
 ** Init solving functions

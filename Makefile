@@ -6,7 +6,7 @@
 #    By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/01 21:51:41 by maghayev          #+#    #+#              #
-#    Updated: 2018/01/20 19:06:08 by maghayev         ###   ########.fr        #
+#    Updated: 2018/01/22 14:41:11 by maghayev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = fillit
@@ -21,7 +21,7 @@ LIBA = $(LIBS)/libft.a
 OBJECT = $(SRC:.c=.o)
 
 %.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+	$(CC) -c -g -o $@ $< $(CFLAGS)
 
 all: $(NAME)
 
