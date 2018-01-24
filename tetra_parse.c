@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 21:12:41 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/23 16:56:09 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/23 19:15:50 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_bool		tetra_validate(char *tetra_str)
 
 	ft_bzero(&tetra_val, sizeof(t_tetra_vaid));
 	tetra_val.t_str = tetra_str;
-	if (!(*tetra_val.t_str != '.' || *tetra_val.t_str != '#'))
+	if ((*tetra_val.t_str != '.' && *tetra_val.t_str != '#'))
 		return (FALSE);
 	while (*tetra_val.t_str)
 	{
