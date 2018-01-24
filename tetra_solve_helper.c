@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 19:36:28 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/20 14:06:52 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/23 15:59:47 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 t_bool			tetra_free_spot(
 	t_point *map, t_point *init_p, t_point *tetra_ps, t_tetra_meta *tetra_meta)
 {
-	int				counter;
-
-	counter = 0;
 	while (init_p->x < tetra_meta->min_sqr)
 	{
 		if (tetra_place_free(map, init_p, tetra_ps, tetra_meta->min_sqr))

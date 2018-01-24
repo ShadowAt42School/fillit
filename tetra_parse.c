@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 21:12:41 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/23 00:00:04 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:56:09 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,26 @@ t_point		tetra_first_hash(char *tetra_str)
 
 t_bool		tetra_validate(char *tetra_str)
 {
-	char	*t_str;
-	int		dot_c;
-	int		hash_c;
-	int		con_c;
-	int		line_c;
+	t_tetra_vaid	tetra_val;
 
-	t_str = tetra_str;
-	dot_c = 0;
-	hash_c = 0;
-	con_c = 0;
-	line_c = 0;
-	while (*t_str)
-	{
-		dot_c += (*t_str == TETRA_EMPTY ? 1 : 0);
-		line_c += (*t_str == '\n' ? 1 : 0);
-		if (*t_str == TETRA_HASH)
-		{
-			con_c += tetra_hash_conns(t_str, t_str - tetra_str);
-			hash_c++;
-		}
-		t_str++;
-	}
-	if (dot_c != TETRA_DOTS_C || hash_c != TETRA_HASH_C || line_c != 4)
+	ft_bzero(&tetra_val, sizeof(t_tetra_vaid));
+	tetra_val.t_str = tetra_str;
+	if (!(*tetra_val.t_str != '.' || *tetra_val.t_str != '#'))
 		return (FALSE);
-	return (con_c == 6 || con_c == 8 ? TRUE : FALSE);
+	while (*tetra_val.t_str)
+	{
+		tetra_val.dot_c += (*tetra_val.t_str == TETRA_EMPTY ? 1 : 0);
+		tetra_val.line_c += (*tetra_val.t_str == '\n' ? 1 : 0);
+		if (*tetra_val.t_str == TETRA_HASH)
+		{
+			tetra_val.con_c +=
+			tetra_hash_conns(tetra_val.t_str, tetra_val.t_str - tetra_str);
+			tetra_val.hash_c++;
+		}
+		tetra_val.t_str++;
+	}
+	if (tetra_val.dot_c != TETRA_DOTS_C ||
+		tetra_val.hash_c != TETRA_HASH_C || tetra_val.line_c != 4)
+		return (FALSE);
+	return (tetra_val.con_c == 6 || tetra_val.con_c == 8 ? TRUE : FALSE);
 }

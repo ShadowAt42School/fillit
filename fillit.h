@@ -6,7 +6,7 @@
 /*   By: maghayev <maghayev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:10:15 by maghayev          #+#    #+#             */
-/*   Updated: 2018/01/22 14:36:29 by maghayev         ###   ########.fr       */
+/*   Updated: 2018/01/23 16:32:56 by maghayev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ typedef struct	s_tetra_meta
 	int				min_sqr;
 	int				t_hash_c;
 }				t_tetra_meta;
+
+typedef struct	s_tetra_valid
+{
+	int				dot_c;
+	int				hash_c;
+	int				con_c;
+	int				line_c;
+	char			*t_str;
+}				t_tetra_vaid;
 
 /*
 ** Pre-Def values
